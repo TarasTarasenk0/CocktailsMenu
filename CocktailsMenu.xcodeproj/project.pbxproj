@@ -21,7 +21,9 @@
 		3015A26E249BC7C8006DF44C /* CocktailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A26C249BC7C8006DF44C /* CocktailsCell.swift */; };
 		3015A26F249BC7C8006DF44C /* CocktailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3015A26D249BC7C8006DF44C /* CocktailsCell.xib */; };
 		3015A271249BDD59006DF44C /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A270249BDD59006DF44C /* Categories.swift */; };
-		3015A274249BDF5F006DF44C /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A273249BDF5F006DF44C /* Drink.swift */; };
+		3015A274249BDF5F006DF44C /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A273249BDF5F006DF44C /* Drinks.swift */; };
+		3015A276249BE0DA006DF44C /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A275249BE0DA006DF44C /* APIServices.swift */; };
+		3015A278249BE2BB006DF44C /* CocktailsMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015A277249BE2BB006DF44C /* CocktailsMenuViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,9 @@
 		3015A26C249BC7C8006DF44C /* CocktailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsCell.swift; sourceTree = "<group>"; };
 		3015A26D249BC7C8006DF44C /* CocktailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CocktailsCell.xib; sourceTree = "<group>"; };
 		3015A270249BDD59006DF44C /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		3015A273249BDF5F006DF44C /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		3015A273249BDF5F006DF44C /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		3015A275249BE0DA006DF44C /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		3015A277249BE2BB006DF44C /* CocktailsMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsMenuViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 			children = (
 				3015A244249B9F61006DF44C /* AppDelegate.swift */,
 				3015A246249B9F61006DF44C /* SceneDelegate.swift */,
+				3015A275249BE0DA006DF44C /* APIServices.swift */,
 				3015A272249BDD63006DF44C /* Models */,
 				3015A265249BC503006DF44C /* Scenes */,
 				3015A26A249BC712006DF44C /* GeneralViews */,
@@ -102,6 +107,7 @@
 				3015A24A249B9F62006DF44C /* Main.storyboard */,
 				3015A248249B9F61006DF44C /* CocktailsMenuController.swift */,
 				3015A261249BC3E3006DF44C /* CocktailsMenuDelegate.swift */,
+				3015A277249BE2BB006DF44C /* CocktailsMenuViewModel.swift */,
 				3015A264249BC4D3006DF44C /* CocktailsCell */,
 			);
 			path = "Cocktails Menu Scene";
@@ -145,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3015A270249BDD59006DF44C /* Categories.swift */,
-				3015A273249BDF5F006DF44C /* Drink.swift */,
+				3015A273249BDF5F006DF44C /* Drinks.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,14 +230,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3015A249249B9F61006DF44C /* CocktailsMenuController.swift in Sources */,
+				3015A276249BE0DA006DF44C /* APIServices.swift in Sources */,
 				3015A262249BC3E3006DF44C /* CocktailsMenuDelegate.swift in Sources */,
 				3015A260249BBC48006DF44C /* NavigationHeaderView.swift in Sources */,
 				3015A26E249BC7C8006DF44C /* CocktailsCell.swift in Sources */,
+				3015A278249BE2BB006DF44C /* CocktailsMenuViewModel.swift in Sources */,
 				3015A245249B9F61006DF44C /* AppDelegate.swift in Sources */,
 				3015A271249BDD59006DF44C /* Categories.swift in Sources */,
 				3015A25E249BBAB0006DF44C /* UIView+Extension.swift in Sources */,
 				3015A247249B9F61006DF44C /* SceneDelegate.swift in Sources */,
-				3015A274249BDF5F006DF44C /* Drink.swift in Sources */,
+				3015A274249BDF5F006DF44C /* Drinks.swift in Sources */,
 				3015A269249BC587006DF44C /* NSObject+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
