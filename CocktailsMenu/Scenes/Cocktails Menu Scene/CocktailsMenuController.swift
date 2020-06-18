@@ -11,20 +11,34 @@ import UIKit
 final class CocktailsMenuController: UIViewController {
 
     //MARK: - IBOutlets
-    @IBOutlet weak var cocktailsTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationHeaderView: NavigationHeaderView!
+    
+    //MARK: - Property
+    let viewModel = CocktailsMenuViewModel()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewModel.reloadingTableView = { [weak self] error in
+            if let error = error {
+                //TODO: Alert
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        viewModel.getData()
     }
 
     //MARK: - SetupUI
     private func setupUI() {
         navigationHeaderView.filterButton.isHidden = false
         navigationHeaderView.delegate = self
-        cocktailsTableView.register(CocktailsCell.self, forCellReuseIdentifier: CocktailsCell.identifier)
+        tableView.register(CocktailsCell.self, forCellReuseIdentifier: CocktailsCell.identifier)
     }
 
 }

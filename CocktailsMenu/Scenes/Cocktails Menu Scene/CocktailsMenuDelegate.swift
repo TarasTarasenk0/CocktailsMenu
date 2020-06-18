@@ -10,7 +10,10 @@ import UIKit
 
 //MARK: - UITableViewDelegate
 extension CocktailsMenuController: UITableViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//    if indexPath.s == photos.count - 1 && page <= 9 {
+//        
+//    }
 }
 
 //MARK: - UITableViewDataSource
@@ -18,28 +21,20 @@ extension CocktailsMenuController: UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return viewModel.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Placeholder"
+        return viewModel.dataSource[section].category
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        default:
-            return 3
-        }
+        return viewModel.dataSource[section].drinks.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cocktailsCell = tableView.dequeueReusableCell(withIdentifier: CocktailsCell.identifier, for: indexPath) as! CocktailsCell
         cocktailsCell.backgroundColor = .red
         return cocktailsCell
     }
-    
-    
 }

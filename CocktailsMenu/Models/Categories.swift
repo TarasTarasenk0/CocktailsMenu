@@ -9,5 +9,13 @@
 import Foundation
 
 struct Categories: Codable {
+    let categories: [Category]
+    
+    enum CodingKeys: String, CodingKey {
+      case categories = "drinks"
+    }
+}
+
+struct Category: Codable {
     let strCategory: String
 }
