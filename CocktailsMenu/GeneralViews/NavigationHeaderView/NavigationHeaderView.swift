@@ -15,16 +15,30 @@ protocol NavigationHeaderViewProtocol: class {
 
 final class NavigationHeaderView: UIView {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
+    
+    //MARK: - Properties
     weak var delegate: NavigationHeaderViewProtocol?
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        xibSetup()
+        setupUI()
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupUI()
+        
+    }
+    
+    func setupUI() {
         xibSetup()
+        backButton.isHidden = true
+        filterButton.isHidden = true
     }
     
     @IBAction func leftButtonAction(_ sender: UIButton) {
