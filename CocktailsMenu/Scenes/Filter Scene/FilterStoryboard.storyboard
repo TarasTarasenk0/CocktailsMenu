@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Filters View Controller-->
+        <scene sceneID="WWF-fl-kvi">
+            <objects>
+                <viewController id="ffC-rA-WQA" customClass="FiltersViewController" customModule="CocktailsMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fv6-Yk-bnH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEq-9g-y2l" customClass="NavigationHeaderView" customModule="CocktailsMenu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="zY8-i9-9gg"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tge-5p-cbG">
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZEq-9g-y2l" firstAttribute="top" secondItem="Ii6-W5-OX3" secondAttribute="top" id="14N-Ev-tEf"/>
+                            <constraint firstItem="ZEq-9g-y2l" firstAttribute="leading" secondItem="Ii6-W5-OX3" secondAttribute="leading" id="5Bf-Qg-nph"/>
+                            <constraint firstItem="Tge-5p-cbG" firstAttribute="leading" secondItem="Ii6-W5-OX3" secondAttribute="leading" id="7H7-Z2-a3v"/>
+                            <constraint firstItem="Ii6-W5-OX3" firstAttribute="trailing" secondItem="ZEq-9g-y2l" secondAttribute="trailing" id="gni-Ga-s7S"/>
+                            <constraint firstItem="Ii6-W5-OX3" firstAttribute="trailing" secondItem="Tge-5p-cbG" secondAttribute="trailing" id="iQy-2H-jpF"/>
+                            <constraint firstItem="Tge-5p-cbG" firstAttribute="top" secondItem="ZEq-9g-y2l" secondAttribute="bottom" id="oqT-95-fUl"/>
+                            <constraint firstItem="Ii6-W5-OX3" firstAttribute="bottom" secondItem="Tge-5p-cbG" secondAttribute="bottom" id="tML-F1-wa0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ii6-W5-OX3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhs-Eo-i5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="126" y="158"/>
+        </scene>
+    </scenes>
+</document>
