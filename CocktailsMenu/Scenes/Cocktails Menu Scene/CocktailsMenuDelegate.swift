@@ -10,16 +10,15 @@ import UIKit
 
 //MARK: - UITableViewDelegate
 extension CocktailsMenuController: UITableViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//    if indexPath.s == photos.count - 1 && page <= 9 {
-//        
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+//        if indexPath.row == viewModel.dataSource[indexPath.section].drinks.count - 1 && viewModel.page < 1 {
+//            viewModel.uploadingNextDrinks()
+//        }
+    }
 }
-
 //MARK: - UITableViewDataSource
 extension CocktailsMenuController: UITableViewDataSource {
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.dataSource.count
     }
@@ -34,7 +33,8 @@ extension CocktailsMenuController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cocktailsCell = tableView.dequeueReusableCell(withIdentifier: CocktailsCell.identifier, for: indexPath) as! CocktailsCell
-        cocktailsCell.backgroundColor = .red
+        cocktailsCell.cocktailTitle.text = viewModel.dataSource[indexPath.section].drinks[indexPath.row].strDrink
+        cocktailsCell.cocktailImage.setImageFromStringUrl = viewModel.dataSource[indexPath.section].drinks[indexPath.row].strDrinkThumb
         return cocktailsCell
     }
 }

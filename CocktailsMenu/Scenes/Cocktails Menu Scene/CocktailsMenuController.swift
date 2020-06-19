@@ -38,7 +38,7 @@ final class CocktailsMenuController: UIViewController {
     private func setupUI() {
         navigationHeaderView.filterButton.isHidden = false
         navigationHeaderView.delegate = self
-        tableView.register(CocktailsCell.self, forCellReuseIdentifier: CocktailsCell.identifier)
+        tableView.register(UINib(nibName: CocktailsCell.identifier, bundle: nil), forCellReuseIdentifier: CocktailsCell.identifier)
     }
 
 }
@@ -51,5 +51,8 @@ extension CocktailsMenuController: NavigationHeaderViewProtocol {
     
     func rightButtonAction(_ sender: UIButton) {
         print(#function)
+        let filterVC = FiltersViewController.instance(.filter)
+        navigationController?.pushViewController(filterVC, animated: true)
+
     }
 }

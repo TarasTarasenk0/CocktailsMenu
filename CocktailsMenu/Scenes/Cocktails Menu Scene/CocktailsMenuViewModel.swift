@@ -45,7 +45,7 @@ final class CocktailsMenuViewModel {
         }
     }
     
-   private func getCategories(completion: @escaping (DataError?) -> Void) {
+    private func getCategories(completion: @escaping (DataError?) -> Void) {
         APIService.getCategories { [weak self] categories in
             guard let self = self else { return }
             if let categoriesArray = categories?.categories {
@@ -60,10 +60,12 @@ final class CocktailsMenuViewModel {
         }
     }
     
-   private func getDrinksBy(categoryPage: Int, completion: @escaping (DataError?) -> Void) {
+    private func getDrinksBy(categoryPage: Int, completion: @escaping (DataError?) -> Void) {
         APIService.getCocktailBy(category: dataSource[categoryPage].category) { drink in
             if let drinks = drink?.drinks {
-                self.page += 1
+                if self.dataSource.count <= categoryPage {
+                    self.page += 1
+                }
                 self.dataSource[categoryPage].drinks = drinks
                 self.totalLoadedDrinks += drinks.count
                 completion(nil)
@@ -74,14 +76,13 @@ final class CocktailsMenuViewModel {
     }
     
     func uploadingNextDrinks() {
-        if totalLoadedDrinks < 10 {
-            getDrinksBy(categoryPage: page) { error in
-                if let error = error {
-                    self.reloadingTableView?(error)
-                    return
-                }
-                self.reloadingTableView?(nil)
+        //guard self.page < 1 else { return }
+        getDrinksBy(categoryPage: page) { error in
+            if let error = error {
+                self.reloadingTableView?(error)
+                return
             }
+            self.reloadingTableView?(nil)
         }
     }
 }
