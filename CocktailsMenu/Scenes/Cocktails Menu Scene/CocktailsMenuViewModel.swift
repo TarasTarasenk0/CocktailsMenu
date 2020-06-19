@@ -24,10 +24,8 @@ final class CocktailsMenuViewModel {
     
     var reloadingTableView: ((DataError?) -> Void)?
     var page = 0
-    var totalLoadedDrinks = 0 {
-        didSet {  uploadingNextDrinks() }
-    }
     var dataSource: [DataSource] = []
+    var categories: [String] = []
     
     func getData() {
         getCategories() { error in
@@ -49,6 +47,7 @@ final class CocktailsMenuViewModel {
         APIService.getCategories { [weak self] categories in
             guard let self = self else { return }
             if let categoriesArray = categories?.categories {
+                self.categories = categoriesArray.map { $0.strCategory }
                 for category in categoriesArray {
                     let content = DataSource(category: category.strCategory, drinks: [])
                     self.dataSource.append(content)
@@ -60,6 +59,8 @@ final class CocktailsMenuViewModel {
         }
     }
     
+    
+    
     private func getDrinksBy(categoryPage: Int, completion: @escaping (DataError?) -> Void) {
         APIService.getCocktailBy(category: dataSource[categoryPage].category) { drink in
             if let drinks = drink?.drinks {
@@ -67,11 +68,27 @@ final class CocktailsMenuViewModel {
                     self.page += 1
                 }
                 self.dataSource[categoryPage].drinks = drinks
-                self.totalLoadedDrinks += drinks.count
                 completion(nil)
             } else {
                 completion(.emptyDrinks)
             }
+        }
+    }
+    
+    func getDrinksBy(categories: [String]) {
+        dataSource.removeAll()
+        let group = DispatchGroup()
+        for category in categories {
+            group.enter()
+            APIService.getCocktailBy(category: category) { drinks in
+                let dataSource = DataSource(category: category, drinks: drinks?.drinks ?? [])
+                self.dataSource.append(dataSource)
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            print(self.dataSource.count)
+            self.reloadingTableView?(nil)
         }
     }
     

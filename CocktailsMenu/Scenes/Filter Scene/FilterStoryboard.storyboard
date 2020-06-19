@@ -22,20 +22,39 @@
                                     <constraint firstAttribute="height" constant="60" id="zY8-i9-9gg"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tge-5p-cbG">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tge-5p-cbG">
+                                <rect key="frame" x="0.0" y="104" width="414" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ffC-rA-WQA" id="iKL-pp-dy9"/>
+                                    <outlet property="delegate" destination="ffC-rA-WQA" id="VmO-Zu-g3Y"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggi-yU-e49">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.12117306472081213" green="0.12117306472081213" blue="0.12117306472081213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="APPLY">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyFilters:" destination="ffC-rA-WQA" eventType="touchUpInside" id="XKM-Rk-r7e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ZEq-9g-y2l" firstAttribute="top" secondItem="Ii6-W5-OX3" secondAttribute="top" id="14N-Ev-tEf"/>
+                            <constraint firstItem="Ggi-yU-e49" firstAttribute="trailing" secondItem="Ii6-W5-OX3" secondAttribute="trailing" id="15I-LD-btT"/>
                             <constraint firstItem="ZEq-9g-y2l" firstAttribute="leading" secondItem="Ii6-W5-OX3" secondAttribute="leading" id="5Bf-Qg-nph"/>
                             <constraint firstItem="Tge-5p-cbG" firstAttribute="leading" secondItem="Ii6-W5-OX3" secondAttribute="leading" id="7H7-Z2-a3v"/>
+                            <constraint firstItem="Ii6-W5-OX3" firstAttribute="bottom" secondItem="Ggi-yU-e49" secondAttribute="bottom" id="9eC-Sd-VO1"/>
                             <constraint firstItem="Ii6-W5-OX3" firstAttribute="trailing" secondItem="ZEq-9g-y2l" secondAttribute="trailing" id="gni-Ga-s7S"/>
                             <constraint firstItem="Ii6-W5-OX3" firstAttribute="trailing" secondItem="Tge-5p-cbG" secondAttribute="trailing" id="iQy-2H-jpF"/>
+                            <constraint firstItem="Ggi-yU-e49" firstAttribute="top" secondItem="Tge-5p-cbG" secondAttribute="bottom" id="lP7-RX-2r6"/>
                             <constraint firstItem="Tge-5p-cbG" firstAttribute="top" secondItem="ZEq-9g-y2l" secondAttribute="bottom" id="oqT-95-fUl"/>
-                            <constraint firstItem="Ii6-W5-OX3" firstAttribute="bottom" secondItem="Tge-5p-cbG" secondAttribute="bottom" id="tML-F1-wa0"/>
+                            <constraint firstItem="Ii6-W5-OX3" firstAttribute="bottom" secondItem="Tge-5p-cbG" secondAttribute="bottom" constant="60" id="tML-F1-wa0"/>
+                            <constraint firstItem="Ggi-yU-e49" firstAttribute="leading" secondItem="Ii6-W5-OX3" secondAttribute="leading" id="xeQ-9c-Xr4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ii6-W5-OX3"/>
                     </view>
@@ -46,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhs-Eo-i5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="158"/>
+            <point key="canvasLocation" x="124.6376811594203" y="157.36607142857142"/>
         </scene>
     </scenes>
 </document>

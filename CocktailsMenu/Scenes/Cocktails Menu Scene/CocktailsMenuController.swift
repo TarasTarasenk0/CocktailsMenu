@@ -16,6 +16,7 @@ final class CocktailsMenuController: UIViewController {
     
     //MARK: - Property
     let viewModel = CocktailsMenuViewModel()
+    var checkedCategory = [String]()
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -38,9 +39,9 @@ final class CocktailsMenuController: UIViewController {
     private func setupUI() {
         navigationHeaderView.filterButton.isHidden = false
         navigationHeaderView.delegate = self
+        navigationHeaderView.headerTitle.text = "Drinks"
         tableView.register(UINib(nibName: CocktailsCell.identifier, bundle: nil), forCellReuseIdentifier: CocktailsCell.identifier)
     }
-
 }
 
 //MARK: - NavigationHeaderViewProtocol
@@ -51,7 +52,16 @@ extension CocktailsMenuController: NavigationHeaderViewProtocol {
     
     func rightButtonAction(_ sender: UIButton) {
         let filterVC = FiltersViewController.instance(.filter)
+        filterVC.categories = viewModel.categories
+        filterVC.filters = checkedCategory
+        filterVC.callBack = { [weak self] categories in
+            self?.checkedCategory = categories
+            self?.viewModel.getDrinksBy(categories: categories)
+            if categories.isEmpty {
+                self?.viewModel.getData()
+            }
+        }
         navigationController?.pushViewController(filterVC, animated: true)
-        
     }
 }
+

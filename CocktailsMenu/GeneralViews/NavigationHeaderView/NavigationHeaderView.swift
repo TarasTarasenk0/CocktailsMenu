@@ -18,6 +18,7 @@ final class NavigationHeaderView: UIView {
     //MARK: - IBOutlets
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var headerTitle: UILabel!
     
     //MARK: - Properties
     weak var delegate: NavigationHeaderViewProtocol?

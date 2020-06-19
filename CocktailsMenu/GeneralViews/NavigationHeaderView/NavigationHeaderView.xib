@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="backButton" destination="Cpe-CE-bZJ" id="lc8-ae-uta"/>
                 <outlet property="filterButton" destination="vGC-lZ-36S" id="xZS-cO-O0R"/>
+                <outlet property="headerTitle" destination="XWR-D6-4fu" id="nyH-bY-VTJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

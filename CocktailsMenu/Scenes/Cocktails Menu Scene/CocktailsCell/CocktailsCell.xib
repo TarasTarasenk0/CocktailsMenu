@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBY-b2-ogH" customClass="CustomUIImage" customModule="CocktailsMenu" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                        <rect key="frame" x="16" y="0.0" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="Axp-iV-fJz"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg3-eT-L6A">
-                        <rect key="frame" x="86" y="8" width="220" height="54"/>
+                        <rect key="frame" x="102" y="8" width="204" height="54"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.26924154160000002" green="0.2995793819" blue="0.32666614649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                     <constraint firstItem="nBY-b2-ogH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nsu-2a-lv0"/>
                     <constraint firstItem="Sg3-eT-L6A" firstAttribute="leading" secondItem="nBY-b2-ogH" secondAttribute="trailing" constant="16" id="S1Q-pj-Cnk"/>
                     <constraint firstItem="Sg3-eT-L6A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ud6-dc-2Cw"/>
-                    <constraint firstItem="nBY-b2-ogH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WtT-EP-d72"/>
+                    <constraint firstItem="nBY-b2-ogH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WtT-EP-d72"/>
                     <constraint firstAttribute="bottom" secondItem="Sg3-eT-L6A" secondAttribute="bottom" constant="8" id="kQx-RY-cXg"/>
                     <constraint firstAttribute="trailing" secondItem="Sg3-eT-L6A" secondAttribute="trailing" constant="16" id="tTz-QT-IdB"/>
                 </constraints>

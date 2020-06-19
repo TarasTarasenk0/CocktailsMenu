@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FiltersCell" id="KGk-i7-Jjw" customClass="FiltersCell" customModule="CocktailsMenu" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuY-fI-avv">
+                        <rect key="frame" x="16" y="6" width="224" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" red="0.26924154160000002" green="0.2995793819" blue="0.32666614649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-ke-yam">
+                        <rect key="frame" x="274" y="0.0" width="40" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="zmi-rA-g41"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="baseline_done_black_18dp">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="doneButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gIV-pX-J8O"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="fdn-ke-yam" secondAttribute="bottom" id="5IM-TJ-PVs"/>
+                    <constraint firstAttribute="trailing" secondItem="fdn-ke-yam" secondAttribute="trailing" constant="6" id="6OY-nW-dXw"/>
+                    <constraint firstItem="fdn-ke-yam" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gpe-ia-v7Q"/>
+                    <constraint firstAttribute="bottom" secondItem="cuY-fI-avv" secondAttribute="bottom" constant="6" id="HqL-b8-cCz"/>
+                    <constraint firstAttribute="trailing" secondItem="cuY-fI-avv" secondAttribute="trailing" constant="80" id="Ljd-98-8m8"/>
+                    <constraint firstItem="cuY-fI-avv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="v5W-IC-TnP"/>
+                    <constraint firstItem="cuY-fI-avv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="yag-TE-V0E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="doneButton" destination="fdn-ke-yam" id="ESM-xN-GTm"/>
+                <outlet property="filterTitle" destination="cuY-fI-avv" id="qbB-xH-aoA"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="113"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="baseline_done_black_18dp" width="36" height="36"/>
+    </resources>
+</document>
