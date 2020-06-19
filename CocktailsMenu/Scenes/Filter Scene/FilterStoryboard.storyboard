@@ -10,7 +10,7 @@
         <!--Filters View Controller-->
         <scene sceneID="WWF-fl-kvi">
             <objects>
-                <viewController id="ffC-rA-WQA" customClass="FiltersViewController" customModule="CocktailsMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ffC-rA-WQA" customClass="FiltersViewController" customModule="CocktailsMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fv6-Yk-bnH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,6 +39,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ii6-W5-OX3"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationHeaderView" destination="ZEq-9g-y2l" id="p1M-pt-bSk"/>
+                        <outlet property="tableView" destination="Tge-5p-cbG" id="VXZ-9h-3CE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhs-Eo-i5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

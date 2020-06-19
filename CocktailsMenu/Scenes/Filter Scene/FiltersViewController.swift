@@ -8,23 +8,26 @@
 
 import UIKit
 
-class FiltersViewController: UIViewController {
+final class FiltersViewController: UIViewController {
 
+    //MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navigationHeaderView: NavigationHeaderView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationHeaderView.backButton.isHidden = false
+    }
+}
 
-        // Do any additional setup after loading the view.
+//MARK: - NavigationHeaderViewProtocol
+extension FiltersViewController: NavigationHeaderViewProtocol {
+    func leftButtonAction(_ sender: UIButton) {
+           let cocktailsMenuVC = CocktailsMenuController.instance()
+           navigationController?.pushViewController(cocktailsMenuVC, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func rightButtonAction(_ sender: UIButton) {
+        print(#function)
     }
-    */
-
 }

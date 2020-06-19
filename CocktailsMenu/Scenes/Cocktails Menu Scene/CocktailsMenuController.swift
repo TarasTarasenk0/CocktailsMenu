@@ -50,9 +50,8 @@ extension CocktailsMenuController: NavigationHeaderViewProtocol {
     }
     
     func rightButtonAction(_ sender: UIButton) {
-        print(#function)
         let filterVC = FiltersViewController.instance(.filter)
         navigationController?.pushViewController(filterVC, animated: true)
-
+        
     }
 }
