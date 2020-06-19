@@ -16,15 +16,23 @@ final class FiltersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationHeaderView.backButton.isHidden = false
+        setupUI()
     }
+    
+   private func setupUI() {
+        navigationHeaderView.backButton.isHidden = false
+        navigationHeaderView.delegate = self
+    }
+    
 }
+
+
 
 //MARK: - NavigationHeaderViewProtocol
 extension FiltersViewController: NavigationHeaderViewProtocol {
     func leftButtonAction(_ sender: UIButton) {
            let cocktailsMenuVC = CocktailsMenuController.instance()
-           navigationController?.pushViewController(cocktailsMenuVC, animated: true)
+           navigationController?.popViewController(animated: true)
     }
     
     func rightButtonAction(_ sender: UIButton) {
