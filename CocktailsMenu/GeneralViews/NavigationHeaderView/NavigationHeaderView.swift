@@ -23,17 +23,14 @@ final class NavigationHeaderView: UIView {
     //MARK: - Properties
     weak var delegate: NavigationHeaderViewProtocol?
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupUI()
-        
     }
     
     func setupUI() {

@@ -11,7 +11,7 @@ import Foundation
 final class CocktailsMenuViewModel {
     
     enum DataError: String, Error, LocalizedError {
-        case error  = "Error" //TODO: - rename errors
+        case error  = "Error"
         case emptyCategories
         case emptyDrinks
         var localizedDescription: String { return rawValue }
@@ -27,7 +27,13 @@ final class CocktailsMenuViewModel {
     var dataSource: [DataSource] = []
     var categories: [String] = []
     
+    private func removeData() {
+        dataSource.removeAll()
+        page = 0
+    }
+    
     func getData() {
+        removeData()
         getCategories() { error in
             if let error = error {
                 self.reloadingTableView?(error)
@@ -58,16 +64,14 @@ final class CocktailsMenuViewModel {
             }
         }
     }
-    
-    
-    
-    private func getDrinksBy(categoryPage: Int, completion: @escaping (DataError?) -> Void) {
+
+    func getDrinksBy(categoryPage: Int, completion: @escaping (DataError?) -> Void) {
         APIService.getCocktailBy(category: dataSource[categoryPage].category) { drink in
             if let drinks = drink?.drinks {
-                if self.dataSource.count <= categoryPage {
+                self.dataSource[categoryPage].drinks = drinks
+                if self.page + 1 < self.dataSource.count {
                     self.page += 1
                 }
-                self.dataSource[categoryPage].drinks = drinks
                 completion(nil)
             } else {
                 completion(.emptyDrinks)
@@ -76,7 +80,7 @@ final class CocktailsMenuViewModel {
     }
     
     func getDrinksBy(categories: [String]) {
-        dataSource.removeAll()
+        removeData()
         let group = DispatchGroup()
         for category in categories {
             group.enter()
@@ -87,18 +91,6 @@ final class CocktailsMenuViewModel {
             }
         }
         group.notify(queue: .main) {
-            print(self.dataSource.count)
-            self.reloadingTableView?(nil)
-        }
-    }
-    
-    func uploadingNextDrinks() {
-        //guard self.page < 1 else { return }
-        getDrinksBy(categoryPage: page) { error in
-            if let error = error {
-                self.reloadingTableView?(error)
-                return
-            }
             self.reloadingTableView?(nil)
         }
     }

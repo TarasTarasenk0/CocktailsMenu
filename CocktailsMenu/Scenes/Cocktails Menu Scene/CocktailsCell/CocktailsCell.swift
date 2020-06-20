@@ -7,21 +7,22 @@
 //
 
 import UIKit
-import SDWebImage
 
-class CocktailsCell: UITableViewCell {
+final class CocktailsCell: UITableViewCell {
     
     //MARK: - IBOutlets
     @IBOutlet weak var cocktailImage: CustomUIImage!
     @IBOutlet weak var cocktailTitle: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func configure(title: String?, image: String?) {
+        self.cocktailTitle.text = title
+        self.cocktailImage.setImageFromStringUrl = image
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cocktailImage.image = nil
+        cocktailTitle.text = nil
     }
     
 }

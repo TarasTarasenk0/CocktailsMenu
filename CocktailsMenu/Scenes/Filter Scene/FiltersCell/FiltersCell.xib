@@ -30,9 +30,6 @@
                         <state key="normal" title="Button" image="baseline_done_black_18dp">
                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
-                        <connections>
-                            <action selector="doneButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gIV-pX-J8O"/>
-                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

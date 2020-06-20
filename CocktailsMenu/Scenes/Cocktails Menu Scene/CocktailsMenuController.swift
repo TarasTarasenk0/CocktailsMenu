@@ -22,10 +22,10 @@ final class CocktailsMenuController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        checkInternet()
         viewModel.reloadingTableView = { [weak self] error in
             if let error = error {
-                //TODO: Alert
-                print(error)
+                self?.showAlert(ConstName.errorMessage, message: error.errorDescription)
                 return
             }
             DispatchQueue.main.async {
@@ -34,7 +34,7 @@ final class CocktailsMenuController: UIViewController {
         }
         viewModel.getData()
     }
-
+    
     //MARK: - SetupUI
     private func setupUI() {
         navigationHeaderView.filterButton.isHidden = false
@@ -46,22 +46,22 @@ final class CocktailsMenuController: UIViewController {
 
 //MARK: - NavigationHeaderViewProtocol
 extension CocktailsMenuController: NavigationHeaderViewProtocol {
-    func leftButtonAction(_ sender: UIButton) {
-        print(#function)
-    }
+    func leftButtonAction(_ sender: UIButton) {}
     
     func rightButtonAction(_ sender: UIButton) {
         let filterVC = FiltersViewController.instance(.filter)
         filterVC.categories = viewModel.categories
         filterVC.filters = checkedCategory
-        filterVC.callBack = { [weak self] categories in
+        filterVC.applyFiltersCallBack = { [weak self] categories in
             self?.checkedCategory = categories
-            self?.viewModel.getDrinksBy(categories: categories)
             if categories.isEmpty {
                 self?.viewModel.getData()
+            } else {
+                self?.viewModel.getDrinksBy(categories: categories)
             }
         }
         navigationController?.pushViewController(filterVC, animated: true)
     }
 }
+
 

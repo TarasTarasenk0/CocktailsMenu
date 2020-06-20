@@ -17,7 +17,7 @@ final class FiltersViewController: UIViewController {
     //MARK: - Properties
     var categories = [String]()
     var filters = [String]()
-    var callBack: (([String]) -> Void)?
+    var applyFiltersCallBack: (([String]) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ final class FiltersViewController: UIViewController {
     
     private func getFiltersAndBack() {
         navigationController?.popViewController(animated: true)
-        callBack?(filters)
+        applyFiltersCallBack?(filters)
     }
 }
 
@@ -47,7 +47,5 @@ extension FiltersViewController: NavigationHeaderViewProtocol {
         navigationController?.popViewController(animated: true)
     }
     
-    func rightButtonAction(_ sender: UIButton) {
-        print(#function)
-    }
+    func rightButtonAction(_ sender: UIButton) {}
 }

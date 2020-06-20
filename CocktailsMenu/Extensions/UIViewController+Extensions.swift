@@ -14,4 +14,19 @@ extension UIViewController {
         let viewController = storyboard.instantiateViewController(self)
         return viewController
     }
+    
+    func showAlert(_ title: String, message: String? = nil, buttonTitle: String = "OK", completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: buttonTitle, style: .default) { _ in
+            completion?()
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    func checkInternet() {
+        if !Reachability.isConnectedToNetwork() {
+            self.showAlert(ConstName.internetTitle, message: ConstName.internetMessage)
+        }
+    }
 }

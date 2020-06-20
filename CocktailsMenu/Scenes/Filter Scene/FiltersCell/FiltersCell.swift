@@ -14,18 +14,8 @@ final class FiltersCell: UITableViewCell {
     @IBOutlet weak var filterTitle: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        filterTitle.text = nil
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    //MARK: - IBActions
-    @IBAction func doneButtonAction(_ sender: Any) {
-    }
-    
 }
