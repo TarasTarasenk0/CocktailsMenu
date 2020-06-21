@@ -11,14 +11,15 @@ import UIKit
 final class FiltersViewController: UIViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var navigationHeaderView: NavigationHeaderView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var navigationHeaderView: NavigationHeaderView!
     
     //MARK: - Properties
     var categories = [String]()
     var filters = [String]()
     var applyFiltersCallBack: (([String]) -> Void)?
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -27,12 +28,12 @@ final class FiltersViewController: UIViewController {
     private func setupUI() {
         tableView.register(UINib(nibName: FiltersCell.identifier, bundle: nil), forCellReuseIdentifier: FiltersCell.identifier)
         navigationHeaderView.delegate = self
-        navigationHeaderView.headerTitle.text = "Filters"
+        navigationHeaderView.headerTitle.text = ConstName.filtersTitle
         navigationHeaderView.backButton.isHidden = false
         sortCategories()
     }
- 
-    @IBAction func applyFilters(_ sender: UIButton) {
+    
+    @IBAction private func applyFilters(_ sender: UIButton) {
         getFiltersAndBack()
     }
     
@@ -40,9 +41,9 @@ final class FiltersViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         applyFiltersCallBack?(filters)
     }
-    func sortCategories() {
-           categories = categories.sorted { $0 < $1 }
-       }
+    private func sortCategories() {
+        categories = categories.sorted { $0 < $1 }
+    }
 }
 
 //MARK: - NavigationHeaderViewProtocol

@@ -12,7 +12,7 @@ struct Categories: Codable {
     let categories: [Category]
     
     enum CodingKeys: String, CodingKey {
-      case categories = "drinks"
+        case categories = "drinks"
     }
 }
 

@@ -50,9 +50,9 @@ final class CocktailsMenuViewModel {
     }
     
     private func getCategories(completion: @escaping (DataError?) -> Void) {
-        APIService.getCategories { [weak self] categories in
+        APIService.getCategories { [weak self] result in
             guard let self = self else { return }
-            if let categoriesArray = categories?.categories {
+            if let categoriesArray = result?.categories {
                 self.categories = categoriesArray.map { $0.strCategory }
                 for category in categoriesArray {
                     let content = DataSource(category: category.strCategory, drinks: [])
@@ -67,8 +67,8 @@ final class CocktailsMenuViewModel {
     }
 
     func getDrinksBy(categoryPage: Int, completion: @escaping (DataError?) -> Void) {
-        APIService.getCocktailBy(category: dataSource[categoryPage].category) { drink in
-            if let drinks = drink?.drinks {
+        APIService.getCocktailBy(category: dataSource[categoryPage].category) { result in
+            if let drinks = result?.drinks {
                 self.dataSource[categoryPage].drinks = drinks
                 if self.page + 1 < self.dataSource.count {
                     self.page += 1

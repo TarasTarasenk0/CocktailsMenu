@@ -12,4 +12,5 @@ struct ConstName {
     static let internetTitle = "Internet"
     static let internetMessage = "Check Your Internet Connection"
     static let errorMessage = "Oops, something goes wrong 🤔"
+    static let filtersTitle = "Filters"
 }

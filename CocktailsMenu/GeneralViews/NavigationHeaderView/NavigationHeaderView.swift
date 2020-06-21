@@ -33,17 +33,17 @@ final class NavigationHeaderView: UIView {
         setupUI()
     }
     
-    func setupUI() {
+   private func setupUI() {
         xibSetup()
         backButton.isHidden = true
         filterButton.isHidden = true
     }
     
-    @IBAction func leftButtonAction(_ sender: UIButton) {
+    @IBAction private func leftButtonAction(_ sender: UIButton) {
         delegate?.leftButtonAction(sender)
     }
     
-    @IBAction func rightButtonAction(_ sender: UIButton) {
+    @IBAction private func rightButtonAction(_ sender: UIButton) {
         delegate?.rightButtonAction(sender)
     }
 }

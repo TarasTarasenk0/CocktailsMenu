@@ -9,10 +9,10 @@
 import UIKit
 
 final class CocktailsMenuController: UIViewController {
-
+    
     //MARK: - IBOutlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var navigationHeaderView: NavigationHeaderView!
+    @IBOutlet  weak var tableView: UITableView!
+    @IBOutlet private weak var navigationHeaderView: NavigationHeaderView!
     
     //MARK: - Property
     let viewModel = CocktailsMenuViewModel()

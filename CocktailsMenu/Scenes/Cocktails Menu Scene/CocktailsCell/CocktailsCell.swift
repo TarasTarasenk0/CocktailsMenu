@@ -11,8 +11,8 @@ import UIKit
 final class CocktailsCell: UITableViewCell {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var cocktailImage: CustomUIImage!
-    @IBOutlet weak var cocktailTitle: UILabel!
+    @IBOutlet private weak var cocktailImage: CustomUIImage!
+    @IBOutlet private weak var cocktailTitle: UILabel!
     
     func configure(title: String?, image: String?) {
         self.cocktailTitle.text = title
