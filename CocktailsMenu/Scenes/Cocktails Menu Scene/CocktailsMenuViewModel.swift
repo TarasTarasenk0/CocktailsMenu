@@ -22,6 +22,7 @@ final class CocktailsMenuViewModel {
         var drinks: [Drink]
     }
     
+    //MARK: - Properties
     var reloadingTableView: ((DataError?) -> Void)?
     var page = 0
     var dataSource: [DataSource] = []
@@ -33,7 +34,6 @@ final class CocktailsMenuViewModel {
     }
     
     func getData() {
-        removeData()
         getCategories() { error in
             if let error = error {
                 self.reloadingTableView?(error)

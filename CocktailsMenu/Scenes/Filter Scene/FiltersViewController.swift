@@ -23,6 +23,7 @@ final class FiltersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        checkInternet()
     }
     
     private func setupUI() {

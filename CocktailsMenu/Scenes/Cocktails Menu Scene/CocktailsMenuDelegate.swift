@@ -13,8 +13,14 @@ import ProgressHUD
 extension CocktailsMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let nextSectionIndex = indexPath.section + 1
+        let lastDrinkInSection = viewModel.dataSource[indexPath.section].drinks.count - 1
+        let isLastCellInSection = indexPath.row == lastDrinkInSection
+        let isLastCategory = indexPath.section + 1 == viewModel.dataSource.count
+        if isLastCategory && isLastCellInSection {
+            showAlert("The End!")
+        }
         guard nextSectionIndex < viewModel.dataSource.count else { return }
-        if indexPath.row == viewModel.dataSource[indexPath.section].drinks.count - 1 &&
+        if isLastCellInSection &&
             viewModel.dataSource[nextSectionIndex].drinks.isEmpty
         {
             ProgressHUD.show()
