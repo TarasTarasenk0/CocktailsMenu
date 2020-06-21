@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 //MARK: - UITableViewDelegate
 extension CocktailsMenuController: UITableViewDelegate {
@@ -16,9 +17,11 @@ extension CocktailsMenuController: UITableViewDelegate {
         if indexPath.row == viewModel.dataSource[indexPath.section].drinks.count - 1 &&
             viewModel.dataSource[nextSectionIndex].drinks.isEmpty
         {
+            ProgressHUD.show()
             viewModel.getDrinksBy(categoryPage: indexPath.section + 1) { error in
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    ProgressHUD.dismiss()
                 }
             }
         }

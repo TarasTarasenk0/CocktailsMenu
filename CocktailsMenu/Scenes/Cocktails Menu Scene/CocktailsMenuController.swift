@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 final class CocktailsMenuController: UIViewController {
     
@@ -30,8 +31,10 @@ final class CocktailsMenuController: UIViewController {
             }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                ProgressHUD.dismiss()
             }
         }
+        ProgressHUD.show()
         viewModel.getData()
     }
     
@@ -41,6 +44,7 @@ final class CocktailsMenuController: UIViewController {
         navigationHeaderView.delegate = self
         navigationHeaderView.headerTitle.text = "Drinks"
         tableView.register(UINib(nibName: CocktailsCell.identifier, bundle: nil), forCellReuseIdentifier: CocktailsCell.identifier)
+        ProgressHUD.animationType = .circleRotateChase
     }
 }
 

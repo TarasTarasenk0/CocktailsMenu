@@ -7,5 +7,6 @@ target 'CocktailsMenu' do
 
   # Pods for CocktailsMenu
   pod 'SDWebImage'
+  pod 'ProgressHUD'
 
 end
