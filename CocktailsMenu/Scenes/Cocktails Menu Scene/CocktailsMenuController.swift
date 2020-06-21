@@ -51,7 +51,7 @@ extension CocktailsMenuController: NavigationHeaderViewProtocol {
     func rightButtonAction(_ sender: UIButton) {
         let filterVC = FiltersViewController.instance(.filter)
         filterVC.categories = viewModel.categories
-        filterVC.filters = checkedCategory
+        filterVC.filters = checkedCategory.isEmpty ? viewModel.categories : checkedCategory
         filterVC.applyFiltersCallBack = { [weak self] categories in
             self?.checkedCategory = categories
             if categories.isEmpty {

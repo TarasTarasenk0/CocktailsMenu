@@ -29,6 +29,7 @@ final class FiltersViewController: UIViewController {
         navigationHeaderView.delegate = self
         navigationHeaderView.headerTitle.text = "Filters"
         navigationHeaderView.backButton.isHidden = false
+        sortCategories()
     }
  
     @IBAction func applyFilters(_ sender: UIButton) {
@@ -39,6 +40,9 @@ final class FiltersViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         applyFiltersCallBack?(filters)
     }
+    func sortCategories() {
+           categories = categories.sorted { $0 < $1 }
+       }
 }
 
 //MARK: - NavigationHeaderViewProtocol

@@ -58,6 +58,7 @@ final class CocktailsMenuViewModel {
                     let content = DataSource(category: category.strCategory, drinks: [])
                     self.dataSource.append(content)
                 }
+                self.sortDataSource()
                 completion(nil)
             } else {
                 completion(.emptyCategories)
@@ -91,7 +92,12 @@ final class CocktailsMenuViewModel {
             }
         }
         group.notify(queue: .main) {
+            self.sortDataSource()
             self.reloadingTableView?(nil)
         }
+    }
+    
+    func sortDataSource() {
+        dataSource = dataSource.sorted { $0.category < $1.category }
     }
 }

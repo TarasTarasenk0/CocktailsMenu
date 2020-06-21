@@ -21,7 +21,6 @@ extension FiltersViewController: UITableViewDelegate {
         } else {
             filters.append(category)
         }
-        //TODO: Filtering
     }
 }
 
